@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic;
 
 namespace ClinicManagementApp.Infrastructure.Persistence.Repositories;
 public class Repository<T>(ApplicationDbContext dbContext)
@@ -13,7 +14,6 @@ public class Repository<T>(ApplicationDbContext dbContext)
         await _dbContext.Set<T>().AddAsync(entity);
         await _dbContext.SaveChangesAsync();
     }
-
     public async Task DeleteAsync(int id)
     {
         var entity = await _dbContext.Set<T>().FindAsync(id);
@@ -24,13 +24,12 @@ public class Repository<T>(ApplicationDbContext dbContext)
         _dbContext.Set<T>().Remove(entity);
         await _dbContext.SaveChangesAsync();
     }
-
     public async Task<T?> GetByIdAsync(int id) 
         => await _dbContext.Set<T>().FindAsync(id);
-
-    public T Update(T entity)
+    public async Task<T> UpdateAsync(T entity)
     {
         _dbContext.Set<T>().Update(entity);
+        await _dbContext.SaveChangesAsync();
         return entity;
     }
 }

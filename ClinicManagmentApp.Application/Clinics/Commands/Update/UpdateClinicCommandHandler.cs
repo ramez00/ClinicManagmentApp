@@ -10,7 +10,8 @@ public class UpdateClinicCommandHandler(
         clinic.Address = request.Address;
         clinic.PhoneNumber = request.PhoneNumber;
         clinic.Email = request.Email;
-        _clinicRepository.Update(clinic);
+        clinic.UpdatedAt = DateTime.UtcNow;
+        await _clinicRepository.UpdateAsync(clinic);
         return new ClinicDto
         {
             Id = clinic.Id,

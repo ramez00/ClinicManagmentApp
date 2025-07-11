@@ -38,9 +38,6 @@ public class ClinicsController(IMediator mediator) : ControllerBase
     {
         var result = await _mediator.Send(command);
 
-        if (result is null)
-            return NotFound();
-
         return NoContent();
     }
 
