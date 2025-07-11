@@ -28,11 +28,17 @@ It follows **Clean Architecture** principles, incorporates design patterns like 
 
 ## Project Structure 📂
 
+```plaintext
 ClinicManagementApp/
-├── ClinicManagementApp.Api/           # ASP.NET Core Web API 🌐
-├── ClinicManagementApp.Application/   # Business logic, MediatR commands/queries 🧠
-├── ClinicManagementApp.Infrastructure/ # Data access, EF Core, Repositories 💾
-├── ClinicManagementApp.Domain/        # Entities, Interfaces 📋
+├── ClinicManagementApp.Api/
+│   └── ASP.NET Core Web API 🌐
+├── ClinicManagementApp.Application/
+│   └── Business logic, MediatR commands/queries 🧠
+├── ClinicManagementApp.Infrastructure/
+│   └── Data access, EF Core, Repositories 💾
+├── ClinicManagementApp.Domain/
+    └── Entities, Interfaces 📋
+```
 
 2. Configure the Backend 🖥️
 Database Setup 🗄️
